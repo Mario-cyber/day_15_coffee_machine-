@@ -23,10 +23,15 @@ def check_resources(order):
             print(f"so you want a {item}")
             for ingredient in menu.MENU[item]["ingredients"]:
                 print(menu.MENU[item]["ingredients"][ingredient])
+
+
                 if menu.MENU[item]["ingredients"][ingredient] > menu.resources[ingredient]:
-                    print(f"you don't have enough {ingredient}")    
-            else: 
-                print(f"you have enough resources for a {item}")
+                    print(f"you don't have enough {ingredient}")
+                    
+                        
+            if menu.MENU[item]["ingredients"][ingredient] < menu.resources[ingredient]:
+                print(f"you have enough {ingredient}")   
+            return True
             # think of where to return true so that this function can trigger the next one 
                  
 
