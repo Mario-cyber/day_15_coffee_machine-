@@ -23,7 +23,12 @@ def check_resources(order):
             print(f"so you want a {item}")
             for ingredient in menu.MENU[item]["ingredients"]:
                 print(menu.MENU[item]["ingredients"][ingredient])
-               
+                if menu.MENU[item]["ingredients"][ingredient] > menu.resources[ingredient]:
+                    print(f"you don't have enough {ingredient}")
+                    
+                else: 
+                 print(f"you have enough resources for a {item}")
+                 
 
 def use_machine():
     user_input  = input("what would you like? ").lower()
@@ -34,20 +39,6 @@ def use_machine():
     else:
         check_resources(order = user_input)
     use_machine()
-
-# def use_machine():
-#     user_input  = input("what would you like? ").lower()
-#     if user_input == "report":
-#         report()
-#     elif user_input == "latle" :
-#         print("make latte")
-#     elif user_input == "espresso" :
-#         print("make espresso")
-#     elif user_input == "capuccino" :
-#         print("make capucino")
-#     elif user_input == "off":
-#         return
-#     use_machine()
 
 
 use_machine()
