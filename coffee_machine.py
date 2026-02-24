@@ -24,10 +24,10 @@ def check_resources(order):
             for ingredient in menu.MENU[item]["ingredients"]:
                 print(menu.MENU[item]["ingredients"][ingredient])
                 if menu.MENU[item]["ingredients"][ingredient] > menu.resources[ingredient]:
-                    print(f"you don't have enough {ingredient}")
-                    
-                else: 
-                 print(f"you have enough resources for a {item}")
+                    print(f"you don't have enough {ingredient}")    
+            else: 
+                print(f"you have enough resources for a {item}")
+            # think of where to return true so that this function can trigger the next one 
                  
 
 def use_machine():
