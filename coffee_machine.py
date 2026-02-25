@@ -40,17 +40,25 @@ def process_coins():
    pennies =  int(input("how many pennies?: "))
 
    user_money = round((0.25 * quarters) + (0.1 * dimes) + (0.05 * nickles) + (0.01 * pennies),2)
-   print(user_money)
    return user_money
 
 #it needs to know the money that was received and
 #the drink that was picked
 def check_transaction(order, money_received):
-    if money_received < menu.MENU[order]["cost"]:
+    global money
+    enough_money  = False
+    cost = menu.MENU[order]["cost"]
+    if money_received < cost:
         print(f"sorry you don't have enough funds for a {order}. Money refunded")
-    elif money_received >= menu.MENU[order]["cost"]:
+    elif money_received == cost:
         print("success")
-        return money_received
+        enough_money = True
+    elif money_received > cost:
+        change = round(money_received - cost,2)
+        enough_money = True
+        print (f"here is your change ${change}")
+    money += cost
+    return enough_money
 
 
 def use_machine():
@@ -62,7 +70,9 @@ def use_machine():
     else:
         check_resources(order = user_input)
         user_money = process_coins()
-        check_transaction(order = user_input, money_received = user_money)
+
+        if check_transaction(order = user_input, money_received = user_money):
+            print("make cofee")
         #see how you can print True or False from need_resources without having to see the print ouput of the function 
         # print(f"need resources = {check_resources(order = user_input)}")
     use_machine()
