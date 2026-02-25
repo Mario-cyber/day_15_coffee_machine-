@@ -20,7 +20,10 @@ def check_resources(order):
     need_resources = False
     for item in menu.MENU :
         if order == item :
-            # print(f"so you want a {item}")
+            # if you are so botthered abouthow the list of needed ingredients 
+            # is presented, you can create a list and append the 
+            # needed ingredients to it the prinnt the message from it like:
+            # you are out of {item 1} and {item 2 }
             for ingredient in menu.MENU[item]["ingredients"]:
                 # print(menu.MENU[item]["ingredients"][ingredient])
                 if menu.MENU[item]["ingredients"][ingredient] > menu.resources[ingredient]:
@@ -38,6 +41,14 @@ def process_coins():
 
    user_money = round((0.25 * quarters) + (0.1 * dimes) + (0.05 * nickles) + (0.01 * pennies),2)
    print(user_money)
+   return user_money
+
+#it needs to know the money that was received and
+#the drink that was picked
+def check_transaction(money_received):
+    if money_received < menu.MENU["espresso"]["cost"]:
+        print("soryr you don't have enough funds")
+
 
 def use_machine():
     user_input  = input("what would you like? (espresso/capuccino/latte): ").lower()
@@ -48,6 +59,7 @@ def use_machine():
     else:
         check_resources(order = user_input)
         process_coins()
+        check_transaction(money_received = user_money)
         #see how you can print True or False from need_resources without having to see the print ouput of the function 
         # print(f"need resources = {check_resources(order = user_input)}")
     use_machine()
