@@ -45,9 +45,12 @@ def process_coins():
 
 #it needs to know the money that was received and
 #the drink that was picked
-def check_transaction(money_received):
-    if money_received < menu.MENU["espresso"]["cost"]:
-        print("soryr you don't have enough funds")
+def check_transaction(order, money_received):
+    if money_received < menu.MENU[order]["cost"]:
+        print(f"sorry you don't have enough funds for a {order}. Money refunded")
+    elif money_received >= menu.MENU[order]["cost"]:
+        print("success")
+        return money_received
 
 
 def use_machine():
@@ -58,8 +61,8 @@ def use_machine():
         return
     else:
         check_resources(order = user_input)
-        process_coins()
-        check_transaction(money_received = user_money)
+        user_money = process_coins()
+        check_transaction(order = user_input, money_received = user_money)
         #see how you can print True or False from need_resources without having to see the print ouput of the function 
         # print(f"need resources = {check_resources(order = user_input)}")
     use_machine()
