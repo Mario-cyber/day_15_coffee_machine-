@@ -29,11 +29,15 @@ def check_resources(order):
     return need_resources         
 
 def process_coins():
-    user_money = input("enter your money in quarters, dimes, nickels, and pennies: ")
-    print(user_money)
-
+   print("enter your money in quarters, dimes, nickels, and pennies: ")
+   quarters = input("how many quartes?: ")
+   dimes = input("how many dimes?: ")
+   nickles = input("how many nickles?: ")
+   pennies =  input("how many pennies?: ")
+   print(quarters,dimes,nickles,pennies)
+   
 def use_machine():
-    user_input  = input("what would you like? ").lower()
+    user_input  = input("what would you like? (espresso/capuccino/latte): ").lower()
     if user_input == "report":
         report()
     elif user_input == "off":
