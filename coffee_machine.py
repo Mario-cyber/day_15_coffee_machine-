@@ -30,12 +30,15 @@ def check_resources(order):
 
 def process_coins():
    print("enter your money in quarters, dimes, nickels, and pennies: ")
-   quarters = input("how many quartes?: ")
-   dimes = input("how many dimes?: ")
-   nickles = input("how many nickles?: ")
-   pennies =  input("how many pennies?: ")
-   print(quarters,dimes,nickles,pennies)
-   
+
+   quarters = int(input("how many quartes?: "))
+   dimes = int(input("how many dimes?: "))
+   nickles = int(input("how many nickles?: "))
+   pennies =  int(input("how many pennies?: "))
+
+   user_money = round((0.25 * quarters) + (0.1 * dimes) + (0.05 * dimes) + (0.01 * quarters),2)
+   print(user_money)
+
 def use_machine():
     user_input  = input("what would you like? (espresso/capuccino/latte): ").lower()
     if user_input == "report":
