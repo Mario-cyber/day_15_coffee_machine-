@@ -27,7 +27,10 @@ def check_resources(order):
                     print(f"you don't have enough {ingredient}")
                     need_resources = True;
     return need_resources         
-                 
+
+def process_coins():
+    user_money = input("enter your money in quarters, dimes, nickels, and pennies: ")
+    print(user_money)
 
 def use_machine():
     user_input  = input("what would you like? ").lower()
@@ -37,9 +40,13 @@ def use_machine():
         return
     else:
         check_resources(order = user_input)
+        process_coins()
         #see how you can print True or False from need_resources without having to see the print ouput of the function 
-        print(f"need resources = {check_resources(order = user_input)}")
+        # print(f"need resources = {check_resources(order = user_input)}")
     use_machine()
+
+
+
 
 
 use_machine()
