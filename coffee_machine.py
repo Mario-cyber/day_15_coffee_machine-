@@ -53,15 +53,18 @@ def check_transaction(order, money_received):
     elif money_received == cost:
         print("success")
         enough_money = True
+        money += cost
     elif money_received > cost:
         change = round(money_received - cost,2)
         enough_money = True
-        print (f"here is your change ${change}")
-    money += cost
+        print (f"here is your change ${change} in dollars")
+        money += cost
     return enough_money
 
 def make_cofee(order):
-    print("here goes coffe making function")
+    item  = menu.MENU[order]["ingredients"]
+    # here substract the amount of each ingredient needed from the corresponding resource 
+    print(item)
 
 def use_machine():
     user_input  = input("what would you like? (espresso/capuccino/latte): ").lower()
@@ -75,7 +78,7 @@ def use_machine():
 
         if check_transaction(order = user_input, money_received = user_money):
             make_cofee(order = user_input)
-            
+
         #see how you can print True or False from need_resources without having to see the print ouput of the function 
         # print(f"need resources = {check_resources(order = user_input)}")
     use_machine()
