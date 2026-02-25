@@ -1,7 +1,6 @@
 import menu 
 
-# print(menu.MENU["latte"])
-# print(menu.resources)
+ 
 
 money = 0 
 
@@ -18,21 +17,16 @@ def report() :
 #         if order == "espresso":
 #             for ingredient in menu.MENU[es]
 def check_resources(order):
+    need_resources = False
     for item in menu.MENU :
         if order == item :
-            print(f"so you want a {item}")
+            # print(f"so you want a {item}")
             for ingredient in menu.MENU[item]["ingredients"]:
-                print(menu.MENU[item]["ingredients"][ingredient])
-
-
+                # print(menu.MENU[item]["ingredients"][ingredient])
                 if menu.MENU[item]["ingredients"][ingredient] > menu.resources[ingredient]:
                     print(f"you don't have enough {ingredient}")
-                    
-                        
-            if menu.MENU[item]["ingredients"][ingredient] < menu.resources[ingredient]:
-                print(f"you have enough {ingredient}")   
-            return True
-            # think of where to return true so that this function can trigger the next one 
+                    need_resources = True;
+    return need_resources         
                  
 
 def use_machine():
@@ -43,6 +37,8 @@ def use_machine():
         return
     else:
         check_resources(order = user_input)
+        #see how you can print True or False from need_resources without having to see the print ouput of the function 
+        print(f"need resources = {check_resources(order = user_input)}")
     use_machine()
 
 
