@@ -60,6 +60,8 @@ def check_transaction(order, money_received):
     money += cost
     return enough_money
 
+def make_cofee(order):
+    print("here goes coffe making function")
 
 def use_machine():
     user_input  = input("what would you like? (espresso/capuccino/latte): ").lower()
@@ -72,7 +74,8 @@ def use_machine():
         user_money = process_coins()
 
         if check_transaction(order = user_input, money_received = user_money):
-            print("make cofee")
+            make_cofee(order = user_input)
+            
         #see how you can print True or False from need_resources without having to see the print ouput of the function 
         # print(f"need resources = {check_resources(order = user_input)}")
     use_machine()
