@@ -36,7 +36,7 @@ def process_coins():
    nickles = int(input("how many nickles?: "))
    pennies =  int(input("how many pennies?: "))
 
-   user_money = round((0.25 * quarters) + (0.1 * dimes) + (0.05 * dimes) + (0.01 * quarters),2)
+   user_money = round((0.25 * quarters) + (0.1 * dimes) + (0.05 * nickles) + (0.01 * pennies),2)
    print(user_money)
 
 def use_machine():
