@@ -73,11 +73,14 @@ def use_machine():
     elif user_input == "off":
         return
     else:
-        check_resources(order = user_input)
-        user_money = process_coins()
-
-        if check_transaction(order = user_input, money_received = user_money):
-            make_cofee(order = user_input)
+        need_reources = check_resources(order = user_input)
+        if need_reources:
+            # no need to do anythig here
+            1+1
+        else:
+            user_money = process_coins()
+            if check_transaction(order = user_input, money_received = user_money):
+                make_cofee(order = user_input)
     use_machine()
 
 
