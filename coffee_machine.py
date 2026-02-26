@@ -16,12 +16,7 @@ def check_resources(order):
     need_resources = False
     for item in menu.MENU :
         if order == item :
-            # if you are so botthered abouthow the list of needed ingredients 
-            # is presented, you can create a list and append the 
-            # needed ingredients to it the prinnt the message from it like:
-            # you are out of {item 1} and {item 2 }
             for ingredient in menu.MENU[item]["ingredients"]:
-                # print(menu.MENU[item]["ingredients"][ingredient])
                 if menu.MENU[item]["ingredients"][ingredient] > menu.resources[ingredient]:
                     print(f"you don't have enough {ingredient}")
                     need_resources = True;
