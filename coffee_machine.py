@@ -64,12 +64,12 @@ def check_transaction(order, money_received):
 def make_cofee(order):
     item  = menu.MENU[order]["ingredients"]
 
+    menu.resources["water"] = menu.resources["water"] - item["water"]
     menu.resources["milk"] = menu.resources["milk"] - item["milk"]
-    print(menu.resources["milk"])
-
-
+    menu.resources["coffee"] = menu.resources["coffee"] - item["coffee"]
     
-    # here substract the amount of each ingredient needed from the corresponding resource 
+    print(f"Here is your {order}, Enjoy!")
+ # here substract the amount of each ingredient needed from the corresponding resource 
 
 def use_machine():
     user_input  = input("what would you like? (espresso/capuccino/latte): ").lower()
