@@ -12,10 +12,6 @@ def report() :
     print(f"money: {money}")
     
 
-# def check_resources(order):
-#     for item in menu.MENU :
-#         if order == "espresso":
-#             for ingredient in menu.MENU[es]
 def check_resources(order):
     need_resources = False
     for item in menu.MENU :
@@ -42,8 +38,7 @@ def process_coins():
    user_money = round((0.25 * quarters) + (0.1 * dimes) + (0.05 * nickles) + (0.01 * pennies),2)
    return user_money
 
-#it needs to know the money that was received and
-#the drink that was picked
+
 def check_transaction(order, money_received):
     global money
     enough_money  = False
@@ -69,7 +64,7 @@ def make_cofee(order):
     menu.resources["coffee"] = menu.resources["coffee"] - item["coffee"]
     
     print(f"Here is your {order}, Enjoy!")
- # here substract the amount of each ingredient needed from the corresponding resource 
+ 
 
 def use_machine():
     user_input  = input("what would you like? (espresso/capuccino/latte): ").lower()
@@ -84,9 +79,6 @@ def use_machine():
         if check_transaction(order = user_input, money_received = user_money):
             make_cofee(order = user_input)
     use_machine()
-
-
-
 
 
 use_machine()
